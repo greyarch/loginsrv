@@ -5,12 +5,23 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"os"
 	"strings"
 
 	"github.com/tarent/loginsrv/model"
 )
 
-var gitlabAPI = "https://gitlab.com/api/v4"
+
+var gitlabBaseURL = env("GITLAB_URL", "https://gitlab.com")
+var gitlabAPI = gitlabBaseURL + "/api/v4"
+
+func env(varName string, dflt string) string {
+	result := dflt
+	if e := os.Getenv(varName); e != "" {
+		result = strings.TrimRight(e, "/")
+	}
+	return result
+}
 
 func init() {
 	RegisterProvider(providerGitlab)
@@ -30,8 +41,8 @@ type GitlabGroup struct {
 
 var providerGitlab = Provider{
 	Name:     "gitlab",
-	AuthURL:  "https://gitlab.com/oauth/authorize",
-	TokenURL: "https://gitlab.com/oauth/token",
+	AuthURL:  gitlabBaseURL + "/oauth/authorize",
+	TokenURL: gitlabBaseURL + "/oauth/token",
 	GetUserInfo: func(token TokenInfo) (model.UserInfo, string, error) {
 		gu := GitlabUser{}
 		url := fmt.Sprintf("%v/user?access_token=%v", gitlabAPI, token.AccessToken)
