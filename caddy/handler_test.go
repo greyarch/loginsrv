@@ -8,8 +8,8 @@ import (
 
 	"github.com/dgrijalva/jwt-go"
 	"github.com/mholt/caddy/caddyhttp/httpserver"
-	"github.com/tarent/loginsrv/login"
-	"github.com/tarent/loginsrv/model"
+	"github.com/greyarch/loginsrv/login"
+	"github.com/greyarch/loginsrv/model"
 )
 
 //Tests a page while being logged in as a user (doesn't test that the {user} replacer changes)

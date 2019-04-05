@@ -8,7 +8,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/tarent/loginsrv/model"
+	"github.com/greyarch/loginsrv/model"
 )
 
 

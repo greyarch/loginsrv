@@ -2,7 +2,7 @@ package login
 
 import (
 	"errors"
-	"github.com/tarent/loginsrv/model"
+	"github.com/greyarch/loginsrv/model"
 )
 
 // SimpleProviderName const with the providers name

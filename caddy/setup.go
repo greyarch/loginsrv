@@ -10,14 +10,14 @@ import (
 
 	"github.com/mholt/caddy"
 	"github.com/mholt/caddy/caddyhttp/httpserver"
-	"github.com/tarent/loginsrv/logging"
-	"github.com/tarent/loginsrv/login"
+	"github.com/greyarch/loginsrv/logging"
+	"github.com/greyarch/loginsrv/login"
 
 	// Import all backends, packaged with the caddy plugin
-	_ "github.com/tarent/loginsrv/htpasswd"
-	_ "github.com/tarent/loginsrv/httpupstream"
-	_ "github.com/tarent/loginsrv/oauth2"
-	_ "github.com/tarent/loginsrv/osiam"
+	_ "github.com/greyarch/loginsrv/htpasswd"
+	_ "github.com/greyarch/loginsrv/httpupstream"
+	_ "github.com/greyarch/loginsrv/oauth2"
+	_ "github.com/greyarch/loginsrv/osiam"
 )
 
 func init() {

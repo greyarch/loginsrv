@@ -2,7 +2,7 @@ package oauth2
 
 import (
 	"fmt"
-	"github.com/tarent/loginsrv/model"
+	"github.com/greyarch/loginsrv/model"
 	"net/http"
 	"net/url"
 	"strings"
