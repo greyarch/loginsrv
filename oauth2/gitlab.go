@@ -12,16 +12,7 @@ import (
 )
 
 
-var gitlabBaseURL = env("GITLAB_URL", "https://gitlab.com")
-var gitlabAPI = gitlabBaseURL + "/api/v4"
-
-func env(varName string, dflt string) string {
-	result := dflt
-	if e := os.Getenv(varName); e != "" {
-		result = strings.TrimRight(e, "/")
-	}
-	return result
-}
+var gitlabAPI = "https://beheer.team-dso.nl/gitlab/api/v4"
 
 func init() {
 	RegisterProvider(providerGitlab)
@@ -41,8 +32,8 @@ type GitlabGroup struct {
 
 var providerGitlab = Provider{
 	Name:     "gitlab",
-	AuthURL:  gitlabBaseURL + "/oauth/authorize",
-	TokenURL: gitlabBaseURL + "/oauth/token",
+	AuthURL:  "https://beheer.team-dso.nl/oauth/authorize",
+	TokenURL: "https://beheer.team-dso.nl/oauth/token",
 	GetUserInfo: func(token TokenInfo) (model.UserInfo, string, error) {
 		gu := GitlabUser{}
 		url := fmt.Sprintf("%v/user?access_token=%v", gitlabAPI, token.AccessToken)
